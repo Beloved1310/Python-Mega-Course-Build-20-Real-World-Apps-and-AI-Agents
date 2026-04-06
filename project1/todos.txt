@@ -1,0 +1,4 @@
+clean
+dance
+play
+dance
