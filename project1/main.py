@@ -15,6 +15,9 @@ while True:
             file.writelines(todos)
             file.close()
         case 'show':
+            file = open('project1/todos.txt', 'r')
+            todos = file.readlines()
+            file.close()
             for index, item in enumerate(todos):
                 row = f"{index + 1}-{item}"
                 # item = item.title()
