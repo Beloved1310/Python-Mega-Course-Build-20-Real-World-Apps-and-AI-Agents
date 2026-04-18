@@ -1,4 +1,8 @@
 # todo
+def get_todos():
+    with open("project1/todos.txt", "r") as file_local:
+        todos_local = file_local.readlines()  
+    return todos_local   
 
 while True:
     # Get userr input and strip space chars from it
@@ -7,8 +11,7 @@ while True:
 
     if user_action.startswith("add"):
         todo = user_action[4:]
-        with open("project1/todos.txt", "r") as file:
-            todos = file.readlines()
+        todos = get_todos()
 
         todos.append(todo + "\n")
 
@@ -16,8 +19,7 @@ while True:
             todos = file.writelines(todos)
 
     elif user_action.startswith("show"):
-        with open("project1/todos.txt", "r") as file:
-            todos = file.readlines()
+        todos = get_todos()
 
         for index, item in enumerate(todos):
             item = item.strip("\n")
@@ -43,8 +45,7 @@ while True:
     elif user_action.startswith("complete"):
         try:
             number = int(user_action[9:])
-            with open("project1/todos.txt", "r") as file:
-                todos = file.readlines()
+            todos = get_todos()
             
             index = number - 1
             todo_to_remove = todos[index].strip("\n")
