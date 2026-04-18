@@ -10,7 +10,7 @@ while True:
         with open("project1/todos.txt", "r") as file:
             todos = file.readlines()
 
-        todos.append(todo)
+        todos.append(todo + "\n")
 
         with open("project1/todos.txt", "w") as file:
             todos = file.writelines(todos)
